@@ -47,7 +47,7 @@ module.exports.getUserProfile = async serviceData => {
 module.exports.loginUser = async serviceData => {
   try {
     const user = await User.findOne({ email: serviceData.email })
-
+    console.log(serviceData.email)
     if (!user) {
       throw new Error('User not found!')
     }

@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux";
 const SignIn = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
-  const [isChecked, setChecked] = useState<boolean>(false);
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const dispatch: any = useDispatch();
 
   const signin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email && password) {
-      await dispatch(login(email, password));
+      await dispatch(login(email, password, rememberMe));
     }
   };
 
@@ -42,7 +42,7 @@ const SignIn = () => {
             <input
               type="checkbox"
               id="remember-me"
-              onChange={() => setChecked(!isChecked)}
+              onChange={() => setRememberMe(!rememberMe)}
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>

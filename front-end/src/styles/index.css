@@ -290,3 +290,47 @@ html {
     }
   }
   
+
+  .inputs-container{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-block: 20px;
+  }
+
+  .inputs-container input{
+    height: 40px;
+    width: 200px;
+    border: 1px solid #8a8a8a;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .btn-container{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-container .btn {
+    background-color: #ffffff;
+    border: 1px solid #7266f6;
+    color:#7266f6;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .not-found-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.not-found-main .detail{
+  text-align: center;
+}

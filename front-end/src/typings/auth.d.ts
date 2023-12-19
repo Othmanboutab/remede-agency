@@ -10,4 +10,4 @@ interface LoginFailureAction {
 
 type LoginAction = LoginSuccessAction | LoginFailureAction;
 
-type LoginThunk = (email: string, password: string) => (dispatch: Dispatch<LoginAction>) => Promise<void>;
+type LoginThunk = (email: string, password: string, rememberMe: boolean) => (dispatch: Dispatch<LoginAction>) => Promise<void>;

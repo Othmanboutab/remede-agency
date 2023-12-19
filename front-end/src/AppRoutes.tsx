@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
+import Transactions from "./pages/Transactions";
+import NotFound from "./pages/NotFound";
 
 const AppRoutes: React.FC = () => {
   const logged = useSelector((state: any) => state?.authReducer?.user?.logged);
@@ -31,6 +33,17 @@ const AppRoutes: React.FC = () => {
             logged || token ? <Navigate to="/dashboard" replace /> : <SignIn />
           }
         />
+        <Route
+          path="/transactions"
+          element={
+            logged || token ? (
+              <Transactions />
+            ) : (
+              <Navigate to="/signIn" replace />
+            )
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

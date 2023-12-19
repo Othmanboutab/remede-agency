@@ -2,9 +2,22 @@ import { useEffect, useState } from "react";
 import { getUserData, updateUser } from "../request/user";
 import { useDispatch, useSelector } from "react-redux";
 
+interface UserReducer {
+  userReducer: {
+    user: {
+      email: string;
+      firstName: string;
+      lastName: string;
+      createdAt: string;
+      updatedAt: string;
+      id: string;
+    };
+  };
+}
+
 const Profile = () => {
   const token = localStorage.getItem("token");
-  const userReducer = useSelector((state: any) => state.userReducer);
+  const userReducer = useSelector((state: UserReducer) => state.userReducer);
 
   const { user } = userReducer;
   const [edit, setEdit] = useState<boolean>(false);
@@ -64,7 +77,7 @@ const Profile = () => {
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          <div>
+          <div className="btn-container">
             <button className="btn" onClick={update}>
               Save
             </button>

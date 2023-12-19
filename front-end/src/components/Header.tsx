@@ -4,12 +4,17 @@ import logo from "../assets/argentBankLogo.png";
 const Header = () => {
   const dispatch = useDispatch();
 
-  const logged = useSelector((state: any) => state?.authReducer?.user?.logged);
+  const {
+    authReducer: {
+      user: { logged, rememberMe },
+    },
+  } = useSelector((state: Record<string, any>) => state);
+
   const token = localStorage.getItem("token");
 
   const handleSignOut = () => {
     dispatch({ type: "LOGOUT" });
-    localStorage.removeItem("token");
+    !rememberMe && localStorage.removeItem("token");
   };
 
   return (
@@ -24,7 +29,7 @@ const Header = () => {
       </a>
       <div>
         {logged || token ? (
-          <a className="main-nav-item" href="/signIn" onClick={handleSignOut}>
+          <a className="main-nav-item" href="/" onClick={handleSignOut}>
             <i className="fa fa-sign-out"></i>
             Sign Out
           </a>

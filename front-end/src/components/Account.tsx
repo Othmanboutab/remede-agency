@@ -1,4 +1,4 @@
-const Account = ({ title, amount, description }: any) => {
+const Account = ({ title, amount, description }: Account) => {
   return (
     <section className="account">
       <div className="account-content-wrapper">
